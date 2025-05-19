@@ -8,6 +8,94 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
   <style>
+<head>
+  <style>
+    /* PASO 4: pega este código CSS aquí dentro */
+
+    /* Fondo animado degradado */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      color: #1e293b;
+      background: linear-gradient(270deg, #ff7e5f, #feb47b, #ff7e5f);
+      background-size: 600% 600%;
+      animation: gradientBG 20s ease infinite;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Contenedor de pelotas */
+    .background-animation {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 0;
+    }
+
+    /* Pelotas estilo pádel */
+    .ball {
+      position: absolute;
+      width: 40px; height: 40px;
+      background: radial-gradient(circle at 30% 30%, #fefefe, #f9a825);
+      border-radius: 50%;
+      box-shadow:
+        inset 2px 2px 4px #fff9,
+        inset -2px -2px 4px #f9a825bb,
+        0 4px 6px rgba(0,0,0,0.15);
+      animation: bounce 5s ease-in-out infinite;
+      top: calc(var(--i) * 20vh + 10vh);
+      left: calc(var(--i) * 20vw + 10vw);
+      animation-delay: calc(var(--i) * 1s);
+    }
+
+    /* Animación de rebote y movimiento horizontal */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+      }
+      50% {
+        transform: translateY(-30px) translateX(15px);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.25);
+      }
+    }
+
+    /* Líneas tipo red de pista */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 50%;
+      width: 2px;
+      height: 100vh;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255 255 255 / 0.3) 0,
+        rgba(255 255 255 / 0.3) 10px,
+        transparent 10px,
+        transparent 20px
+      );
+      transform: translateX(-50%);
+      animation: slideLines 5s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes slideLines {
+      0% {background-position: 0 0;}
+      100% {background-position: 0 20px;}
+    }
+  </style>
+</head>
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
