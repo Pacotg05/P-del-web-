@@ -1,167 +1,198 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Padel Dynasty</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
   <style>
     body {
-      background-color: #000;
-      overflow-x: hidden;
-    }
-    .net {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 20px;
-      background-image: linear-gradient(transparent 50%, white 50%);
-      background-size: 20px 20px;
-      z-index: 0;
-    }
-    .ball {
-      position: absolute;
-      bottom: 20px;
-      width: 30px;
-      height: 30px;
-      background-color: yellow;
-      border-radius: 50%;
-      animation: bounce 4s infinite ease-in-out;
-    }
-    @keyframes bounce {
-      0% { transform: translateY(0) translateX(0); }
-      25% { transform: translateY(-200px) translateX(100px); }
-      50% { transform: translateY(0) translateX(200px); }
-      75% { transform: translateY(-100px) translateX(300px); }
-      100% { transform: translateY(0) translateX(400px); }
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111827;
+      color: #fcd34d;
     }
     .overlay {
       background: rgba(0, 0, 0, 0.6);
     }
+    section {
+      scroll-margin-top: 80px;
+    }
+	
   </style>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+<body class="text-yellow-300">
 
-<body class="text-white font-sans">
-  <!-- Red y pelota -->
-  <div class="net"></div>
-  <div class="ball"></div>
-
-  <!-- Hero -->
-  <section class="relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1628315364008-5f66f5ff232c');">
-    <div class="overlay absolute inset-0 z-10"></div>
-    <div class="z-20 text-center">
-      <h1 class="text-5xl md:text-7xl font-bold text-yellow-400">Padel Dynasty</h1>
-      <p class="mt-4 text-xl md:text-2xl">Donde el pádel se convierte en leyenda</p>
+  <!-- HERO SOLO CON IMAGEN DE FONDO -->
+  <header class="relative h-screen flex items-center justify-center text-white text-center bg-cover bg-center" style="background-image: url('fondo.jpg');">
+    <div class="overlay absolute inset-0"></div>
+    <div class="z-10">
+      <h1 class="text-5xl font-bold mb-4">Padel Dynasty</h1>
+      <p class="text-xl mb-6">Donde nace la leyenda, juega la dinastía.</p>
+      <a href="#club" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-bold hover:bg-yellow-300 transition">Explorar</a>
     </div>
-  </section>
+  </header>
 
-  <!-- Menú -->
-  <nav class="bg-yellow-500 p-4 text-black sticky top-0 z-50">
-    <ul class="flex flex-wrap justify-center space-x-4 text-lg font-semibold">
-      <li><a href="#alquiler">Alquiler</a></li>
-      <li><a href="#reserva">Reservas</a></li>
-      <li><a href="#entrenamiento">Entrenamiento</a></li>
-      <li><a href="#torneos">Torneos</a></li>
-      <li><a href="#galeria">Galería</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
+  <!-- NAVBAR -->
+  <nav class="bg-black sticky top-0 z-50 shadow-lg">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <span class="text-xl font-bold text-yellow-400">PADEL DYNASTY</span>
+      <ul class="flex gap-4 text-sm font-semibold text-yellow-100">
+        <li><a href="#club" class="hover:text-yellow-400">El Club</a></li>
+        <li><a href="#instalaciones" class="hover:text-yellow-400">Instalaciones</a></li>
+        <li><a href="#clases" class="hover:text-yellow-400">Clases</a></li>
+        <li><a href="#torneos" class="hover:text-yellow-400">Torneos</a></li>
+	 <li><a href="#reservas" class="hover:text-yellow-400">Reservas</a></li>
+        <li><a href="#galeria" class="hover:text-yellow-400">Galería</a></li>
+        <li><a href="#resenas" class="hover:text-yellow-400">Reseñas</a></li>
+        <li><a href="#contacto" class="hover:text-yellow-400">Contacto</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- Alquiler -->
-  <section id="alquiler" class="p-8 bg-gray-900">
-    <h2 class="text-3xl font-bold text-yellow-400 mb-4">Alquiler de Canchas</h2>
-    <p>Reserva nuestras canchas profesionales con iluminación LED y césped de última generación. Abierto de 8:00 a 23:00 todos los días.</p>
-  </section>
+  <!-- CONTENIDO -->
+  <main class="max-w-6xl mx-auto px-6 py-16 space-y-24">
+    <section id="club">
+      <h2 class="text-4xl font-bold mb-4">El Club</h2>
+      <p>Padel Dynasty es más que un club. Es una comunidad que respira pádel en cada rincón, con pasión, competición y calidad de primer nivel.</p>
+    </section>
 
-  <!-- Reservas -->
-  <section id="reserva" class="p-8 bg-gray-800">
-    <h2 class="text-3xl font-bold text-yellow-400 mb-4">Reservas</h2>
-    <form class="space-y-4">
-      <input type="text" placeholder="Nombre" class="w-full p-2 rounded bg-gray-700 text-white" required />
-      <input type="email" placeholder="Correo electrónico" class="w-full p-2 rounded bg-gray-700 text-white" required />
-      <input type="tel" placeholder="Teléfono" class="w-full p-2 rounded bg-gray-700 text-white" pattern="[0-9+ ]+" />
-      <input type="date" class="w-full p-2 rounded bg-gray-700 text-white" required />
-      <input type="time" class="w-full p-2 rounded bg-gray-700 text-white" required />
-      <button type="submit" class="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-400">Reservar</button>
-    </form>
-  </section>
+    <section id="instalaciones">
+      <h2 class="text-4xl font-bold mb-4">Instalaciones</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li>6 pistas indoor profesionales</li>
+        <li>Gimnasio completo</li>
+        <li>Vestuarios con duchas individuales</li>
+        <li>Zona chill y cafetería</li>
+        <li>Parking privado</li>
+      </ul>
+    </section>
 
-  <!-- Entrenamiento -->
-  <section id="entrenamiento" class="p-8 bg-gray-900">
-    <h2 class="text-3xl font-bold text-yellow-400 mb-4">Entrenamiento</h2>
-    <p>Clases para todas las edades con entrenadores certificados. Planes individuales y grupales disponibles.</p>
-  </section>
+    <section id="clases">
+      <h2 class="text-4xl font-bold mb-4">Clases y Servicios</h2>
+      <p>Entrena como un profesional con entrenadores cualificados. Clases para todas las edades, niveles y objetivos.</p>
+    </section>
 
-  <!-- Torneos -->
-  <section id="torneos" class="p-8 bg-gray-800">
-    <h2 class="text-3xl font-bold text-yellow-400 mb-4">Torneos</h2>
-    <p>Participa en nuestros torneos mensuales con premios y ranking local. ¡Inscríbete ahora y demuestra tu nivel!</p>
-  </section>
+    <section id="torneos">
+      <h2 class="text-4xl font-bold mb-4">Torneos y Eventos</h2>
+      <p>Participá en torneos locales, ligas internas o eventos corporativos. ¡Competencia y diversión aseguradas!</p>
+    </section>
+<section id="reservas">
+  <h2 class="text-4xl font-bold mb-4">Reservas</h2>
+  <p class="mb-6">Reserva tu pista o clase fácilmente. Completa los datos y nos pondremos en contacto contigo para confirmar.</p>
 
-  <!-- Galería -->
-  <section id="galeria" class="p-8 bg-gray-900">
-    <h2 class="text-3xl font-bold text-yellow-400 mb-4">Galería</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <img src="https://images.unsplash.com/photo-1599058917211-d1b845aeb8aa" alt="Cancha" class="w-full h-48 object-cover rounded" />
-      <img src="https://images.unsplash.com/photo-1628315364008-5f66f5ff232c" alt="Partido" class="w-full h-48 object-cover rounded" />
-      <img src="https://images.unsplash.com/photo-1621570072687-0d30a0d23445" alt="Jugadores" class="w-full h-48 object-cover rounded" />
-      <img src="https://images.unsplash.com/photo-1621582068137-45f1fddcc7cd" alt="Torneo" class="w-full h-48 object-cover rounded" />
+  <form class="space-y-4 bg-gray-800 p-6 rounded-xl text-black">
+    <div>
+      <label for="nombre" class="block text-yellow-300 font-semibold">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" class="w-full p-2 rounded" placeholder="Tu nombre" />
     </div>
-  </section>
 
-  <!-- Contacto -->
-  <section id="contacto" class="p-8 bg-gray-800">
-    <h2 class="text-3xl font-bold text-yellow-400 mb-4">Contacto</h2>
-    <p>Email: info@padeldynasty.com</p>
-    <p>Teléfono: +34 600 123 456</p>
-    <p>Dirección: Calle del Pádel, 123, Madrid</p>
-    <div class="mt-4">
-      <iframe class="w-full h-64" src="https://www.google.com/maps/embed?..." allowfullscreen="" loading="lazy"></iframe>
+    <div>
+      <label for="email" class="block text-yellow-300 font-semibold">Correo electrónico:</label>
+      <input type="email" id="email" name="email" class="w-full p-2 rounded" placeholder="tucorreo@ejemplo.com" />
     </div>
-  </section>
 
-  <!-- YouTube -->
-  <section class="p-8 bg-gray-900">
-    <h2 class="text-3xl font-bold text-yellow-400 mb-4">Conócenos</h2>
-    <div class="aspect-w-16 aspect-h-9">
-      <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/ZoTLXOj7t8A" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    <div>
+      <label for="telefono" class="block text-yellow-300 font-semibold">Teléfono de contacto:</label>
+      <input type="tel" id="telefono" name="telefono" class="w-full p-2 rounded" placeholder="+34 600 000 000" />
     </div>
-  </section>
 
-  <!-- Reseñas -->
-  <section class="p-8 bg-gray-800">
-    <h2 class="text-3xl font-bold text-yellow-400 mb-4">Reseñas</h2>
-    <form class="space-y-4" onsubmit="return enviarResena(event)">
-      <textarea id="resena-texto" placeholder="Escribe tu reseña aquí..." class="w-full p-2 rounded bg-gray-700 text-white" required></textarea>
-      <button type="submit" class="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-400">Enviar Reseña</button>
-    </form>
-    <div id="resenas" class="mt-4 space-y-2"></div>
-  </section>
+    <div>
+      <label for="fecha" class="block text-yellow-300 font-semibold">Fecha de reserva:</label>
+      <input type="date" id="fecha" name="fecha" class="w-full p-2 rounded" />
+    </div>
+
+    <div>
+      <label for="hora" class="block text-yellow-300 font-semibold">Hora preferida:</label>
+      <input type="time" id="hora" name="hora" class="w-full p-2 rounded" />
+    </div>
+
+    <div>
+      <label for="comentarios" class="block text-yellow-300 font-semibold">Comentarios adicionales:</label>
+      <textarea id="comentarios" name="comentarios" class="w-full p-2 rounded" rows="3" placeholder="¿Algo más que debamos saber?"></textarea>
+    </div>
+
+    <button type="submit" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-bold hover:bg-yellow-300 transition">
+  Enviar Reserva
+</button>
+
+  </form>
+</section>
+
+    <section id="galeria">
+      <h2 class="text-4xl font-bold mb-4">Galería</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <img src="jugadores.jpg" class="rounded-xl shadow-lg" />
+        <img src="foto2.jpg" class="rounded-xl shadow-lg" />
+        <img src="wpt.jpg" class="rounded-xl shadow-lg" />
+        <iframe width="1000" height="500" src="https://www.youtube.com/embed/0n_ZBeysGB8?si=DxFaU_whxL0Gpcbp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </section>
+	
+	
+
+    <section id="resenas">
+      <h2 class="text-4xl font-bold mb-4">Reseñas</h2>
+      <div id="resena-lista" class="space-y-6">
+        <blockquote class="italic">"Un lugar increíble para mejorar mi juego. El ambiente es brutal." – Laura M.</blockquote>
+        <blockquote class="italic">"Las pistas son de lo mejor que he jugado. Todo cuidado al detalle." – Mario T.</blockquote>
+        <blockquote class="italic">"El torneo del fin de semana fue espectacular. Volveré seguro." – Carla G.</blockquote>
+      </div>
+      <h3 class="text-xl font-semibold mt-8">Añadir tu reseña</h3>
+      <form id="resena-form" class="space-y-4 mt-4">
+        <textarea id="resena-texto" class="w-full p-4 bg-gray-800 text-yellow-300 rounded-lg" placeholder="Escribe tu reseña aquí..." rows="4"></textarea>
+        <button type="submit" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-bold hover:bg-yellow-300 transition">Enviar Reseña</button>
+      </form>
+    </section>
+
+    <section id="contacto">
+      <h2 class="text-4xl font-bold mb-4">Contacto</h2>
+      <p>📍 C/ Hosteleros 12, Almansa (Albacete)</p>
+	  <a href="mailto:info@padeldynasty.com">📧 Contáctanos! --> info@padeldynasty.com</a>
+      <p>📞 +34 600 123 456</p>
+      <iframe class="w-full h-64 mt-4 rounded-xl" src="https://maps.google.com/maps?q=Hosteleros%2012%20Almansa&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"></iframe>
+    </section>
+  </main>
+
+  <footer class="bg-black text-yellow-300 py-6 text-center">
+    <p>&copy; 2025 Padel Dynasty | Diseñado con pasión por Paco Tortosa Gómez</p>
+  </footer>
 
   <script>
     ScrollReveal().reveal('section', {
       duration: 1000,
       origin: 'bottom',
-      distance: '50px',
-      easing: 'ease-in-out',
+      distance: '30px',
       reset: false
     });
 
-    function enviarResena(e) {
+    const form = document.getElementById('resena-form');
+    const lista = document.getElementById('resena-lista');
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const texto = document.getElementById('resena-texto').value;
-      if (texto.trim() === '') return;
-
-      const div = document.createElement('div');
-      div.className = 'bg-gray-700 p-4 rounded';
-      div.innerText = texto;
-
-      document.getElementById('resenas').appendChild(div);
-      document.getElementById('resena-texto').value = '';
-    }
+      const texto = document.getElementById('resena-texto').value.trim();
+      if (texto !== '') {
+        const nuevo = document.createElement('blockquote');
+        nuevo.className = 'italic';
+        nuevo.textContent = `"${texto}" – Usuario Anónimo`;
+        lista.appendChild(nuevo);
+        document.getElementById('resena-texto').value = '';
+      }
+    });
   </script>
+const reservaForm = document.querySelector('#reservas form');
+
+reservaForm.addEventListener('submit', function(e) {
+  e.preventDefault(); // evita que la página se recargue
+
+  const nombre = this.nombre.value.trim();
+
+  alert(`¡Gracias, ${nombre || 'usuario'}! Tu reserva ha sido registrada.`);
+
+  this.reset(); // limpia el formulario
+});
+
 </body>
 </html>
-
